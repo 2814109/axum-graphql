@@ -14,3 +14,4 @@ tokio = { version = "1.21.2", features = ["full"] }
 tower = "0.4.13"
 tower-http = { version = "0.3.0", features = ["cors"] }
 chrono = "0.4.22"
+async-graphql = { version = "4.0", features = ["chrono"] }
