@@ -305,6 +305,8 @@ dependencies = [
  "hyper",
  "sea-orm",
  "serde",
+ "serde_json",
+ "starwars",
  "tokio",
  "tower",
  "tower-http",
@@ -1949,6 +1951,14 @@ dependencies = [
  "once_cell",
  "tokio",
  "tokio-native-tls",
+]
+
+[[package]]
+name = "starwars"
+version = "0.1.1"
+dependencies = [
+ "async-graphql",
+ "slab",
 ]
 
 [[package]]
