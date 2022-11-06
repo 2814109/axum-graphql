@@ -9,19 +9,16 @@ impl MigrationTrait for Migration {
         manager
             .create_table(
                 Table::create()
-                    .table(Task::Table)
+                    .table(ProgramingLanguage::Table)
                     .if_not_exists()
                     .col(
-                        ColumnDef::new(Task::Id)
+                        ColumnDef::new(ProgramingLanguage::Id)
                             .integer()
                             .not_null()
                             .auto_increment()
                             .primary_key(),
                     )
-                    .col(ColumnDef::new(Task::Title).string().not_null())
-                    .col(ColumnDef::new(Task::IsClosed).boolean().not_null())
-                    .col(ColumnDef::new(Task::CreatedAt).date_time().not_null())
-                    .col(ColumnDef::new(Task::UpdatedAt).date_time().not_null())
+                    .col(ColumnDef::new(ProgramingLanguage::Name).string().not_null())
                     .to_owned(),
             )
             .await
@@ -29,19 +26,16 @@ impl MigrationTrait for Migration {
 
     async fn down(&self, manager: &SchemaManager) -> Result<(), DbErr> {
         manager
-            .drop_table(Table::drop().table(Task::Table).to_owned())
+            .drop_table(Table::drop().table(ProgramingLanguage::Table).to_owned())
             .await
     }
 }
 
 /// Learn more at https://docs.rs/sea-query#iden
 #[derive(Iden)]
-#[iden(rename = "tasks")]
-enum Task {
+#[iden(rename = "programing_languages")]
+enum ProgramingLanguage {
     Table,
     Id,
-    Title,
-    IsClosed,
-    CreatedAt,
-    UpdatedAt,
+    Name,
 }
