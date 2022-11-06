@@ -2,6 +2,7 @@ pub use sea_orm_migration::prelude::*;
 
 mod m20221105_061918_first_table;
 mod m20221106_163802_programing_languages;
+mod m20221106_195411_seeding;
 
 pub struct Migrator;
 
@@ -11,6 +12,7 @@ impl MigratorTrait for Migrator {
         vec![
             Box::new(m20221105_061918_first_table::Migration),
             Box::new(m20221106_163802_programing_languages::Migration),
+            Box::new(m20221106_195411_seeding::Migration),
         ]
     }
 }
